@@ -20,7 +20,7 @@ document.getElementById("qwerty").addEventListener("click", (e)=> {
 //Handle when using the keyboard
 document.addEventListener("keydown", (e) => {
 	//Check if game is playing so that you cant play while overlay is up.
-	if (game.playing) {
+	if (game && game.playing) {
 		let key = e.key;
 		let keybtn;
 		//Check that key is a letter between a-z
