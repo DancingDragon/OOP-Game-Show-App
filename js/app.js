@@ -12,9 +12,7 @@ document.getElementById("btn__reset").addEventListener("click", (e)=> {
 
 //Handle when someone clicks the letter buttons
 document.getElementById("qwerty").addEventListener("click", (e)=> {
-	if (e.target.className == "key") {
-		game.handleInteraction(e.target);
-	}		
+	game.handleInteraction(e.target);
 });
 
 //Handle when using the keyboard
@@ -32,7 +30,7 @@ document.addEventListener("keydown", (e) => {
 				break;
 			}
 		}
-		//Only handle it if the button is not already disabled
+		// if we have found the element tied to the key.
 		if (keybtn) 
 			game.handleInteraction(keybtn);
 		}
