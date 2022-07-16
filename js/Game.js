@@ -27,21 +27,23 @@ class Game {
 	}
 	 
 	handleInteraction(el) {
-		//Disable the responsible button element
-		el.disabled = true;
-		
-		//Check if the phrase contains the letter
-		let letter = el.textContent;
-		if (this.activePhrase.checkLetter(letter)) {
-			el.classList.add("chosen");
-			this.activePhrase.showMatchedLetter(letter);
-			//end game if player won
-			if (this.checkForWin()) {
-				this.gameOver(true);
+		if (el.className == "key") {
+			//Disable the responsible button element
+			el.disabled = true;
+			
+			//Check if the phrase contains the letter
+			let letter = el.textContent;
+			if (this.activePhrase.checkLetter(letter)) {
+				el.classList.add("chosen");
+				this.activePhrase.showMatchedLetter(letter);
+				//end game if player won
+				if (this.checkForWin()) {
+					this.gameOver(true);
+				}
+			} else {
+				el.classList.add("wrong");
+				this.removeLife();
 			}
-		} else {
-			el.classList.add("wrong");
-			this.removeLife();
 		}
 	}
 	 
